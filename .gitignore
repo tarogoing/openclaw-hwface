@@ -9,6 +9,8 @@
 /.idea/assetWizard.settings.xml
 .setting/
 /build
+**/build
+**/dist/*.zip
 .DS_Store
 /captures
 .externalNativeBuild

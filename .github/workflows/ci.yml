@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  android-project:
+    name: Android Gradle project check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Show Gradle projects
+        working-directory: android
+        run: ./gradlew projects --no-daemon
+
+  browser-extension:
+    name: Browser extension metadata check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate extension manifests
+        run: |
+          python -m json.tool browser-extension/openclaw-extension/manifests/chromium/manifest.json > /dev/null
+          python -m json.tool browser-extension/openclaw-extension/manifests/firefox/manifest.json > /dev/null

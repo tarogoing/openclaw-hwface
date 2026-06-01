@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Side Panel</title>
+    <link rel="stylesheet" href="./panel.css" />
+  </head>
+  <body>
+    <main class="chat">
+      <header class="chatHeader">
+        <div class="headerIntro">
+          <p class="eyebrow">OpenClaw</p>
+          <h2 id="chatTitle">New Conversation</h2>
+          <p id="connectionHint" class="muted">Loading settings...</p>
+        </div>
+        <div class="headerActions">
+          <select id="conversationSelect" class="conversationSelect" aria-label="Conversation"></select>
+          <button id="newChatBtn" type="button">New Chat</button>
+          <button id="openSettings" type="button" class="ghost">Settings</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages"></section>
+
+      <section class="composer">
+        <textarea id="userInput" placeholder="Type your message. Images will be sent as input_image, and other documents as input_file to OpenClaw."></textarea>
+        <div class="toolbar">
+          <label id="attachLabel" class="fileButton" for="fileInput">Attach</label>
+          <input id="fileInput" type="file" multiple />
+          <button id="sendBtn" type="button">Send</button>
+        </div>
+        <ul id="fileList" class="fileList"></ul>
+        <p id="status" class="status"></p>
+      </section>
+    </main>
+    <script src="./i18n.js"></script>
+    <script src="./openclaw-client.js"></script>
+    <script src="./panel.js"></script>
+  </body>
+</html>

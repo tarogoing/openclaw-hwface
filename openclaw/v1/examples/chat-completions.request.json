@@ -1,0 +1,14 @@
+{
+  "model": "openclaw/default",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are controlling an OpenClaw-compatible Android hardware interface. Ask for confirmation before high-force movement."
+    },
+    {
+      "role": "user",
+      "content": "Check the claw status, then open it halfway if safe."
+    }
+  ],
+  "stream": false
+}

@@ -20,3 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "OpenClawHwFace"
+include(":app")

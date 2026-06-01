@@ -1,0 +1,5 @@
+{
+  "model": "openclaw/default",
+  "input": "Summarize the connected claw status and suggest the next safe action.",
+  "stream": false
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Setup Help</title>
+    <link rel="stylesheet" href="./help-openclaw.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div class="actions">
+        <a id="helpBackToSettings" class="btn secondary" href="./options.html">Back to Settings</a>
+      </div>
+
+      <section class="card hero">
+        <p class="eyebrow">OpenClaw</p>
+        <h1 id="helpHeroTitle">How to enable OpenClaw API endpoints</h1>
+        <p id="helpHeroDesc" class="muted">OpenClaw Gateway often ships with `/v1/chat/completions` and `/v1/responses` disabled by default. This page explains what to turn on before testing the extension.</p>
+      </section>
+
+      <section class="card">
+        <h2 id="helpNeedTitle">What this extension needs</h2>
+        <p id="helpNeedBody">The extension calls the Gateway directly. Plain text chat can use `/v1/chat/completions`, while attachments require `/v1/responses`.</p>
+      </section>
+
+      <section class="card">
+        <h2 id="helpDefaultTitle">Default behavior to watch for</h2>
+        <p id="helpDefaultBody">If those endpoints are not enabled in your OpenClaw config, connection tests usually return 404, 405, or endpoint-disabled style errors.</p>
+      </section>
+
+      <section class="card">
+        <h2 id="helpStepsTitle">Recommended setup steps</h2>
+        <ol class="steps">
+          <li>
+            <strong id="helpStep1Title">1. Open your OpenClaw Gateway config</strong>
+            <p id="helpStep1Body">Find the configuration file or admin panel you use to start OpenClaw Gateway.</p>
+          </li>
+          <li>
+            <strong id="helpStep2Title">2. Enable the OpenAI-compatible chat endpoint</strong>
+            <p id="helpStep2Body">Turn on the route for `/v1/chat/completions` if you want text-only compatibility mode in the extension.</p>
+          </li>
+          <li>
+            <strong id="helpStep3Title">3. Enable the Responses endpoint</strong>
+            <p id="helpStep3Body">Turn on `/v1/responses` as well. This is the recommended mode for this extension, and it is required for images and other file attachments.</p>
+          </li>
+          <li>
+            <strong id="helpStep4Title">4. Restart or reload Gateway</strong>
+            <p id="helpStep4Body">After saving the config, restart OpenClaw Gateway so the new endpoint switches take effect.</p>
+          </li>
+          <li>
+            <strong id="helpStep5Title">5. Test from the extension settings page</strong>
+            <p id="helpStep5Body">Set the Base URL, choose `Responses API` or `Chat Completions API`, then click `Test Connection`.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2 id="helpTipsTitle">Quick tips</h2>
+        <ul class="tips">
+          <li id="helpTip1">If you only need normal text chat, enabling `/v1/chat/completions` may be enough.</li>
+          <li id="helpTip2">If you want image upload or document upload, you must enable `/v1/responses`.</li>
+          <li id="helpTip3">If your Gateway uses a token or password, fill it into `Gateway Token / Password` in the extension settings.</li>
+          <li id="helpTip4">Keep your Base URL pointed at the Gateway root, for example `http://127.0.0.1:18789`.</li>
+        </ul>
+      </section>
+
+      <section class="card note">
+        <h2 id="helpNoteTitle">Important note</h2>
+        <p id="helpNoteBody">Different OpenClaw versions may name the switches differently. If your config file does not use these exact labels, look for options that enable the OpenAI-compatible chat route and the Responses route.</p>
+      </section>
+    </main>
+    <script src="./i18n.js"></script>
+    <script src="./help-openclaw.js"></script>
+  </body>
+</html>

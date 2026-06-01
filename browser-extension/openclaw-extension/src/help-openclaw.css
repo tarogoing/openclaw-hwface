@@ -1,0 +1,120 @@
+:root {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --bg: #efe7dc;
+  --card: #fffaf5;
+  --line: #d8cab7;
+  --ink: #34281f;
+  --muted: #6b6056;
+  --accent: #a44c2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(145deg, rgba(164, 76, 43, 0.1), transparent 35%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.92), transparent 32%),
+    var(--bg);
+}
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 18px 40px;
+}
+
+.actions {
+  margin-bottom: 14px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.hero {
+  background:
+    linear-gradient(135deg, rgba(164, 76, 43, 0.08), rgba(255, 250, 245, 0.96)),
+    var(--card);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+p,
+li {
+  line-height: 1.7;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 16px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+
+.btn.secondary {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.steps,
+.tips {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.steps li,
+.tips li {
+  margin: 10px 0;
+}
+
+.steps p {
+  margin: 6px 0 0;
+}
+
+.note {
+  border-color: rgba(164, 76, 43, 0.35);
+}
+
+code {
+  background: #f6efe8;
+  border: 1px solid #eadacd;
+  border-radius: 6px;
+  padding: 1px 6px;
+}

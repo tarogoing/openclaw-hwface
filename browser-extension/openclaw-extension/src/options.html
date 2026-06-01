@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Extension Settings</title>
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <p class="eyebrow">OpenClaw</p>
+        <h1 id="settingsTitle">Extension Settings</h1>
+        <p id="settingsDesc" class="muted">Configure the Gateway URL, auth, and request mode. `responses` is better for file input, while `chat` is better for plain text compatibility.</p>
+        <div class="helpCallout">
+          <div>
+            <strong id="openclawHelpLinkLabel">OpenClaw Setup Help</strong>
+            <p id="openclawHelpHint" class="muted">Need help enabling `/v1/chat/completions` or `/v1/responses` in OpenClaw? Open the guide.</p>
+          </div>
+          <a id="openclawHelpLink" class="helpLink" href="./help-openclaw.html">OpenClaw Setup Help</a>
+        </div>
+      </section>
+
+      <section class="tabBar">
+        <button id="tabBtnSettings" class="tabBtn active" type="button">Settings</button>
+        <button id="tabBtnImageDebug" class="tabBtn" type="button">Image Debug</button>
+      </section>
+
+      <section id="tabSettings" class="tabPanel active">
+        <section class="card formGrid">
+          <label>
+            <span id="labelBaseUrl">Base URL</span>
+            <input id="baseUrl" placeholder="http://127.0.0.1:18789" />
+          </label>
+          <label>
+            <span id="labelGatewayToken">Gateway Token / Password</span>
+            <input id="apiKey" type="password" placeholder="Bearer token or password" />
+          </label>
+          <label>
+            <span id="labelLanguage">Language</span>
+            <select id="uiLanguage">
+              <option id="languageAuto" value="">Auto</option>
+              <option id="languageEnUS" value="en-US">English</option>
+              <option id="languageZhCN" value="zh-CN">Simplified Chinese</option>
+              <option id="languageZhTW" value="zh-TW">Traditional Chinese</option>
+            </select>
+          </label>
+          <label>
+            <span id="labelAgentId">Agent ID</span>
+            <input id="agentId" placeholder="main" />
+          </label>
+          <label>
+            <span id="labelModel">Model</span>
+            <input id="model" placeholder="openclaw or openclaw:main" />
+          </label>
+          <label>
+            <span id="labelSessionKeyPrefix">Session Key Prefix</span>
+            <input id="sessionKeyPrefix" placeholder="openclaw-ext" />
+          </label>
+          <label>
+            <span id="labelEndpointMode">Endpoint Mode</span>
+            <select id="endpointMode">
+              <option id="endpointResponses" value="responses">Responses API</option>
+              <option id="endpointChat" value="chat">Chat Completions API</option>
+            </select>
+          </label>
+          <label>
+            <span id="labelUser">User</span>
+            <input id="user" placeholder="browser-extension" />
+          </label>
+          <label>
+            <span id="labelTemperature">Temperature</span>
+            <input id="temperature" type="number" min="0" max="2" step="0.1" />
+          </label>
+          <label>
+            <span id="labelMaxOutputTokens">Max Output Tokens</span>
+            <input id="maxOutputTokens" type="number" min="1" step="1" placeholder="optional" />
+          </label>
+          <label class="full">
+            <span id="labelSystemPrompt">System Prompt</span>
+            <textarea id="systemPrompt" placeholder="Optional system prompt for the extension session."></textarea>
+          </label>
+        </section>
+
+        <section class="card actions">
+          <button id="saveBtn" type="button">Save Settings</button>
+          <button id="testBtn" type="button" class="secondary">Test Connection</button>
+          <p id="status" class="status"></p>
+        </section>
+      </section>
+
+      <section id="tabImageDebug" class="tabPanel">
+        <section class="card">
+          <div class="sectionHead">
+            <div>
+              <h2 id="imageDebugTitle">Image Debug</h2>
+              <p id="imageDebugDesc" class="muted">Shows the last image request payload in a redacted form.</p>
+            </div>
+            <button id="clearImageDebugBtn" type="button" class="secondary">Clear Log</button>
+          </div>
+          <details id="imageDebugDetails">
+            <summary id="imageDebugSummary">Show debug payload</summary>
+            <pre id="imageDebugOutput">No image debug data yet.</pre>
+          </details>
+        </section>
+      </section>
+
+    </main>
+    <script src="./i18n.js"></script>
+    <script src="./options.js"></script>
+  </body>
+</html>
